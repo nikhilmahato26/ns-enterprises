@@ -20,7 +20,7 @@ export default function Gallery() {
           variants={stagger(0.06)}
           initial="hidden"
           whileInView="show"
-          viewport={viewportOnce}
+          viewport={{ once: true, amount: 0.05 }}
           className="mt-14 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5"
         >
           {gallery.map((item) => (
