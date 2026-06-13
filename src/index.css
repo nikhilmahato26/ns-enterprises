@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-ivory-100 text-matte-900 font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-gold-300/40 text-walnut-900;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .container-luxe {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-luxe text-gold-600;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply btn bg-walnut-gradient text-ivory-50 shadow-luxe hover:-translate-y-0.5 hover:shadow-gold;
+  }
+
+  .btn-gold {
+    @apply btn bg-gold-gradient text-matte-900 shadow-gold hover:-translate-y-0.5;
+  }
+
+  .btn-outline {
+    @apply btn border border-walnut-700/30 bg-transparent text-walnut-800 hover:border-walnut-700 hover:bg-walnut-700 hover:text-ivory-50;
+  }
+
+  .glass-card {
+    @apply rounded-2xl border border-white/40 bg-white/30 shadow-glass backdrop-blur-xl;
+  }
+
+  .text-gradient-gold {
+    @apply bg-gold-gradient bg-clip-text text-transparent;
+  }
+
+  .section-pad {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Swiper overrides — premium look */
+.swiper-pagination-bullet {
+  background: #bf9b5f !important;
+  opacity: 0.35 !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 22px !important;
+  border-radius: 9999px !important;
+}
