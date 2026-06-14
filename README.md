@@ -54,5 +54,5 @@ src/
 
 ## 📞 Business
 
-**NS ENTERPRISES** · +91 7986402037 · office@nsenterprisecom.org
+**NS ENTERPRISES** · +91 7986302037 · office@nsenterprisecom.org
 Vishavkarma Market, Kartarpur, District Jalandhar, Punjab, India

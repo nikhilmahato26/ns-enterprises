@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Phone, Mail, MapPin, Send, Check } from 'lucide-react'
 import { FaWhatsapp } from 'react-icons/fa'
 import SectionHeading from '../common/SectionHeading'
-import { business, telLink, mailLink, whatsappLink } from '../../data/business'
+import { business, telLink, mailLink, mailLink2, whatsappLink } from '../../data/business'
 import { fadeUp, stagger, viewportOnce } from '../../utils/motion'
 
 const requirements = [
@@ -27,7 +27,10 @@ const contactCards = [
     icon: Mail,
     label: 'Email Us',
     value: business.email,
+    value2: business.email2,
     href: mailLink,
+    href2: mailLink2,
+    isEmails: true,
   },
   {
     icon: MapPin,
@@ -91,6 +94,32 @@ export default function Contact() {
         >
           {contactCards.map((c) => {
             const Icon = c.icon
+            if (c.isEmails) {
+              return (
+                <motion.div
+                  key={c.label}
+                  variants={fadeUp}
+                  className="flex items-start gap-4 rounded-2xl border border-walnut-700/10 bg-ivory-50 p-6 shadow-sm"
+                >
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gold-gradient text-matte-900 shadow-gold">
+                    <Icon className="h-6 w-6" />
+                  </span>
+                  <div className="min-w-0">
+                    <p className="text-[0.7rem] font-semibold uppercase tracking-luxe text-gold-600">
+                      {c.label}
+                    </p>
+                    <div className="mt-1 flex flex-col gap-1 text-sm font-medium text-walnut-800">
+                      <a href={c.href} className="hover:text-gold-600 transition-colors break-all">
+                        {c.value}
+                      </a>
+                      <a href={c.href2} className="hover:text-gold-600 transition-colors break-all">
+                        {c.value2}
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            }
             return (
               <motion.a
                 key={c.label}
@@ -253,6 +282,9 @@ export default function Contact() {
                 </a>
                 <a href={mailLink} className="flex items-center gap-3 break-all hover:text-gold-300">
                   <Mail className="h-4 w-4 text-gold-300" /> {business.email}
+                </a>
+                <a href={mailLink2} className="flex items-center gap-3 break-all hover:text-gold-300">
+                  <Mail className="h-4 w-4 text-gold-300" /> {business.email2}
                 </a>
               </div>
             </div>

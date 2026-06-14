@@ -2,7 +2,7 @@ import { Phone, Mail, MapPin } from 'lucide-react'
 import { FaInstagram, FaFacebookF, FaYoutube, FaPinterestP, FaWhatsapp } from 'react-icons/fa'
 import Logo from '../common/Logo'
 import { collections } from '../../data/collections'
-import { business, telLink, mailLink, whatsappLink } from '../../data/business'
+import { business, telLink, mailLink, mailLink2, whatsappLink } from '../../data/business'
 
 const socials = [
   { icon: FaInstagram, href: business.socials.instagram, label: 'Instagram' },
@@ -101,6 +101,12 @@ export default function Footer() {
               <a href={mailLink} className="flex items-start gap-3 break-all text-ivory-200/70 transition-colors hover:text-gold-300">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
                 {business.email}
+              </a>
+            </li>
+            <li>
+              <a href={mailLink2} className="flex items-start gap-3 break-all text-ivory-200/70 transition-colors hover:text-gold-300">
+                <Mail className="mt-0.5 h-4 w-4 shrink-0 text-gold-400" />
+                {business.email2}
               </a>
             </li>
             <li>

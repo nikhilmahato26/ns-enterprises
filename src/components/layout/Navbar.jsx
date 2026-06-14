@@ -31,6 +31,27 @@ export default function Navbar() {
     return () => (document.body.style.overflow = '')
   }, [open])
 
+  const handleLinkClick = (e, href) => {
+    e.preventDefault()
+    setOpen(false)
+    document.body.style.overflow = ''
+
+    const targetId = href.replace('#', '')
+    const element = document.getElementById(targetId)
+    if (element) {
+      const offset = 80 // height of fixed header (h-20)
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY
+      const offsetPosition = elementPosition - offset
+
+      setTimeout(() => {
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth',
+        })
+      }, 50)
+    }
+  }
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -43,7 +64,11 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-luxe flex h-20 items-center justify-between">
-        <a href="#home" aria-label="NS ENTERPRISES home">
+        <a
+          href="#home"
+          onClick={(e) => handleLinkClick(e, '#home')}
+          aria-label="NS ENTERPRISES home"
+        >
           <Logo />
         </a>
 
@@ -53,6 +78,7 @@ export default function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
+                onClick={(e) => handleLinkClick(e, link.href)}
                 className="group relative text-sm font-medium text-walnut-800 transition-colors hover:text-walnut-900"
               >
                 {link.label}
@@ -95,7 +121,7 @@ export default function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => handleLinkClick(e, link.href)}
                     className="block rounded-lg px-3 py-3 text-base font-medium text-walnut-800 transition-colors hover:bg-walnut-700/5 hover:text-walnut-900"
                   >
                     {link.label}
